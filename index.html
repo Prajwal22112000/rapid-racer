@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Racer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onkeydown="move(event)">
+<div id="main">
+    <div id="header">
+        <h1>SPEED RACER</h1>
+    </div>
+    <div id="scoreboard">
+        <h1 id="score">Score:0</h1>
+    </div>
+    <div id="menu" onclick="start()">
+        <h1>Click/Tap to start</h1>
+    </div>
+    <div id="touchscreens">
+        <div onclick="left(event)" "></div>
+        <div onclick="right(event)" " ></div>
+    </div>
+    <div id="highway">
+        <div id="lane0" class="road"></div>
+        <div id="lane1" class="road"></div>
+        <div id="lane2" class="road"><div id="mycar"></div></div>
+        <div id="lane3" class="road"></div>
+        <div id="lane4" class="road"></div>
+    </div>
+</div>
+</body>
+<script src="script.js"></script>
+</html>

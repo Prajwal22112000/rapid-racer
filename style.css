@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* for the touchscreen two windows that woud be invisible */
+#touchscreens {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    height: 95vh;
+    width: 100%;
+    z-index: 1;
+}
+
+#touchscreens div {
+    width: 48%;
+    height: 100%;
+    z-index: inherit;
+}
+
+#main {
+    max-width: 100%;
+    height: 100vh;
+    background-color: green;
+}
+
+#header {
+    color:white;
+    background-color: rgb(247, 72, 119);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 5vh;
+}
+
+#scoreboard {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(191, 168, 139, 0.655);
+    font-size: 1rem;
+    color:rgb(0, 0, 0);
+    margin-top: 1rem;
+}
+
+#menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(96, 132, 105, 0.683);
+    width: 100%;
+    height: 95vh;
+    text-align: center;
+    visibility: visible;
+    z-index: 1;
+}
+
+#menu h1 {
+    background-color: rgba(64, 74, 69, 0.749);
+    font-size: 2.5rem;
+    width: 100%;
+}
+
+#highway {
+    display: flex;
+    justify-content: space-evenly;
+    height: 95vh;
+}
+
+.road {
+    background-color: rgb(128, 128, 128);
+    height: 95vh;
+    width: 20%;
+    margin: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.car {
+    position: absolute;
+    height:8vh;
+    min-width: 4.5vh;
+    margin: auto;
+    text-decoration: none;
+    border: 0;
+    background-color: rgb(128, 128, 128);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+}
+
+#mycar{
+    position: absolute;
+    background-color: cornflowerblue;
+    height:8vh;
+    min-width: 4.5vh;
+    margin: 85vh auto 0;
+    background-image: url("images/citycoupe.png");
+    background-color: rgb(128, 128, 128);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@keyframes movetraffic {
+    0%{
+        margin-top:0vh;
+    }
+    100%{
+        margin-top:95vh;
+    }
+}
+
