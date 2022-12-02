@@ -11,6 +11,7 @@ let rand // to create random numbers
 let trafficcar // upcoming traffic cars object
 let score = 0; // score of the player
 let vehicles = ["ambulance", "citycar", "citycoupe", "cityhatch", "coupe", "hatch", "pickup", "police", "sedan", "sportshatch", "sportssedan", "taxi"];
+let invincible = false; // if true then user gets invincibilty for 5 seconds;
 
 // function to cause delay
 function sleep(delay){
@@ -23,6 +24,13 @@ function pause(){
 }
 
 async function start(){
+    document.documentElement.requestFullscreen();
+    for(let i = 3; i >= 1; i--){
+        menu.querySelector("h1").innerHTML = i;
+        await sleep(500);
+    }
+    menu.querySelector("h1").innerHTML = "Go!";
+    await sleep(500);
     menu.style.visibility = "hidden";
     if(started == false){
         started = true;
@@ -44,6 +52,7 @@ async function start(){
                 level();
             }
         }
+        console.log("while loop terminated");
     }
 }
 
@@ -111,11 +120,10 @@ function level(){
     }
 }
 
-let invincible = false; // if true then user gets invincibilty for 5 seconds;
 async function checkAccident(index){
     let newtrafficcar = document.getElementById("car" + index); // individual traffic car
     let trafficarclane = newtrafficcar.value; // lane value of the current traffic car object that was created
-    while(true){
+    while(dead == false){
         let carstyles = window.getComputedStyle(newtrafficcar); //traffic car css styles
         let mycarstyles = window.getComputedStyle(mycar); // my car css styles
         let carheight = parseInt(carstyles.height.split("p")[0]); // height of the traffic car and my car, both are same
@@ -133,7 +141,7 @@ async function checkAccident(index){
             }
             break;
         }
-        if(trafficcarmargintop + 10 > mycarmargintop + carheight || dead == true){
+        if(trafficcarmargintop + 10 > mycarmargintop + carheight){
             increaseScore();
             newtrafficcar.parentElement.removeChild(newtrafficcar);
             console.log("traffic car object deleted");
@@ -154,6 +162,7 @@ async function gameover(invincible){
         increaseScore();
     }
     else{
+    // document.documentElement.requestFullscreen();
     dead = true;
     started = false;
     menu.style.visibility = "visible";
